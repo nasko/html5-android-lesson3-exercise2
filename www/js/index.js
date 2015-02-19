@@ -1,5 +1,6 @@
 var pause = false;
 var xCenter = 75;
+var xDirection = 'positive';
 
 //init function
 function onLoad() {
@@ -65,7 +66,21 @@ function draw() {
 
     //Move the canvas and its origin x horizontally and y vertically
     //to the center of our drawing area.
-    xCenter += 1;
+    if(270 > xCenter && 'positive' === xDirection) {
+        xCenter++;
+    } else if(270 == xCenter && 'positive' === xDirection) {
+        xCenter--;
+        xDirection = 'negative';
+    } else if(270 > xCenter && 30 != xCenter && 'negative' === xDirection) {
+        xCenter--;
+    } else if(30 < xCenter && 'negative' === xDirection) {
+        xCenter--;
+    } else if(30 == xCenter && 'negative' === xDirection) {
+        xCenter++;
+        xDirection = 'positive';
+
+    }
+    //xCenter += 1;
 
     //Restore the most recently saved canvas state.
     ctx.restore();
