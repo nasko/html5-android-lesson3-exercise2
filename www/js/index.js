@@ -37,19 +37,26 @@ function draw() {
     ctx.clearRect(0,0,300,300);
 
     ctx.beginPath();
-    ctx.arc(xCenter,75,25,0,Math.PI*2,true); // Outer circle
+    ctx.arc(xCenter,75,25,0,Math.PI*2,true); // circle
+
+    // body
     ctx.moveTo(xCenter,100);
     ctx.lineTo(xCenter,175);
+
+    // left leg
     ctx.lineTo((xCenter - 30),225);
+
+    // right leg
     ctx.moveTo(xCenter,175);
     ctx.lineTo((xCenter + 30),225);
 
+    // right hand
     ctx.moveTo(xCenter,130);
     ctx.lineTo((xCenter + 30),150);
 
+    // left hand
     ctx.moveTo(xCenter,130);
     ctx.lineTo((xCenter - 30),150);
-
 
     ctx.stroke();
 
